@@ -1,2 +1,1 @@
-# esdhaka
-Tools for processing Taqman Array Cards and Environmental sampling data in Dhaka, Bangladesh
+# esdata: an R package for processing environmental sampling data
