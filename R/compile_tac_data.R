@@ -6,7 +6,6 @@
 #' @param path_in A full file path to the directory containing parsed .csv files.
 #' @param path_out A full file path to the location where output files are to be written.
 #' @param tau The threshold Ct value for the amplification control. For each TAC, when relevant amplification controls (e.g. MS2, PhHV) are BELOW this threshold, "Undetermined" responses can be set to this threshold value.
-#' @param export Logical indicating whether to save a csv of the compiled data in `path_out`
 #' @param verbose Logical indicating whether to print messages.
 #'
 #' @returns data.frame
@@ -19,7 +18,6 @@
 compile_tac_data <- function(path_in,
                              path_out,
                              tau=35,
-                             export=TRUE,
                              verbose=TRUE
 ) {
 
@@ -148,6 +146,13 @@ compile_tac_data <- function(path_in,
      d$ct_value[d$ct_value == 'Undetermined'] <- NA
      d$ct_value <- as.numeric(d$ct_value)
 
+     if (verbose) message("Parsing sample id")
+     tmp <- stringr::str_split(d$sample_id, "-", simplify=TRUE)
+     d$aquaprobe_id <- tmp[,3]
+     d$sample_date <- as.Date(tmp[,2], format="%d%b%y")
+
+     d <- d[,c(1:6,10,9,7,8)]
+
      if (verbose) {
 
           message("Final data:")
@@ -155,14 +160,8 @@ compile_tac_data <- function(path_in,
 
      }
 
-     if (export) {
-
-          tmp_path <- file.path(path_out, 'compiled.csv')
-          data.table::fwrite(d, file=file.path(path_out, 'compiled.csv'))
-          if (verbose) message(glue::glue("Compiled data saved here: {tmp_path}"))
-
-     }
-
-     return(d)
+     tmp_path <- file.path(path_out, 'compiled.csv')
+     data.table::fwrite(d, file=file.path(path_out, 'compiled.csv'))
+     if (verbose) message(glue::glue("Compiled data saved here: {tmp_path}"))
 
 }

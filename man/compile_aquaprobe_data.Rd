@@ -11,8 +11,6 @@ compile_aquaprobe_data(path_in, path_out, export = TRUE, verbose = TRUE)
 
 \item{path_out}{A full file path to the location where output files are to be written.}
 
-\item{export}{Logical indicating whether to save a csv of the compiled data in \code{path_out}}
-
 \item{verbose}{Logical indicating whether to print messages.}
 }
 \value{

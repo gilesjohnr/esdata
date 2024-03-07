@@ -4,7 +4,6 @@
 #'
 #' @param path_in A full file path to the directory containing parsed .csv files.
 #' @param path_out A full file path to the location where output files are to be written.
-#' @param export Logical indicating whether to save a csv of the compiled data in `path_out`
 #' @param verbose Logical indicating whether to print messages.
 #'
 #' @returns data.frame
@@ -18,7 +17,6 @@
 
 compile_aquaprobe_data <- function(path_in,
                                    path_out,
-                                   export=TRUE,
                                    verbose=TRUE
 ) {
 
@@ -125,7 +123,6 @@ compile_aquaprobe_data <- function(path_in,
 
      tmp_path <- file.path(path_out, 'compiled.csv')
      data.table::fwrite(out, file=tmp_path)
-     message(paste('Compiled aquaprobe data is here:', tmp_path))
-     if (export) return(out)
+     if (verbose) message(paste('Compiled aquaprobe data is here:', tmp_path))
 
 }

@@ -13,8 +13,6 @@ compile_tac_data(path_in, path_out, tau = 35, export = TRUE, verbose = TRUE)
 
 \item{tau}{The threshold Ct value for the amplification control. For each TAC, when relevant amplification controls (e.g. MS2, PhHV) are BELOW this threshold, "Undetermined" responses can be set to this threshold value.}
 
-\item{export}{Logical indicating whether to save a csv of the compiled data in \code{path_out}}
-
 \item{verbose}{Logical indicating whether to print messages.}
 }
 \value{
