@@ -1,5 +1,5 @@
 # Make metadata keys
-key <- as.data.frame(readxl::read_xlsx(file.path(getwd(), "local/data/key_master_with_notes.xlsx")))
+key <- as.data.frame(readxl::read_xlsx(file.path(getwd(), "data-raw/key.xlsx")))
 
 for (i in 1:nrow(key)) {
 
@@ -14,6 +14,6 @@ key <- key[order(key$target_name_concise),]
 key$include[is.na(key$include)] <- 1
 key <- key[,colnames(key) != 'description']
 
-write.csv(key, file.path(getwd(), "local/data/key.csv"), row.names=FALSE)
+write.csv(key, file.path(getwd(), "data-raw/key.csv"), row.names=FALSE)
 
 usethis::use_data(key, overwrite=TRUE)
