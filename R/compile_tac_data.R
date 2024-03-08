@@ -160,8 +160,8 @@ compile_tac_data <- function(path_in,
 
      }
 
-     tmp_path <- file.path(path_out, 'compiled.csv')
-     data.table::fwrite(d, file=file.path(path_out, 'compiled.csv'))
-     if (verbose) message(glue::glue("Compiled data saved here: {tmp_path}"))
+     tmp_path <- file.path(path_out, 'compiled_tac.csv')
+     data.table::fwrite(d, file=tmp_path)
+     if (verbose) message(paste('Compiled TAC data is here:', tmp_path))
 
 }

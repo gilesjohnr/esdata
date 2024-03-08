@@ -1,7 +1,7 @@
 # Make metadata keys
 key <- as.data.frame(readxl::read_xlsx(file.path(getwd(), "local/data/key_master_with_notes.xlsx")))
 
-for (i in 1:nrow(tmp)) {
+for (i in 1:nrow(key)) {
 
      if (key$target_name_concise[i] == "NA") {
 

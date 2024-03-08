@@ -4,7 +4,7 @@
 \alias{compile_aquaprobe_data}
 \title{Compile aquaprobe data}
 \usage{
-compile_aquaprobe_data(path_in, path_out, export = TRUE, verbose = TRUE)
+compile_aquaprobe_data(path_in, path_out, verbose = TRUE)
 }
 \arguments{
 \item{path_in}{A full file path to the directory containing parsed .csv files.}

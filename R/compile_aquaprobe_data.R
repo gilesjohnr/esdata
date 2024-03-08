@@ -79,7 +79,7 @@ compile_aquaprobe_data <- function(path_in,
      rm(ap_consolidated_numeric)
 
      if (verbose) message('Converting dates')
-     out$date <- convert_date_time(out$`Date & Time`)
+     out$aquaprobe_date <- convert_date_time(out$`Date & Time`)
      out <- out[!(colnames(out) == 'Date & Time')]
 
 
@@ -114,14 +114,14 @@ compile_aquaprobe_data <- function(path_in,
      colnames(out)[colnames(out) == 'Alt'] <- 'altitude'
      colnames(out)[colnames(out) == 'Lat'] <- 'lat'
      colnames(out)[colnames(out) == 'Lon'] <- 'lon'
-     colnames(out)[colnames(out) == 'Collection site'] <- 'site_name'
+     colnames(out)[colnames(out) == 'Collection site'] <- 'location_name'
      colnames(out)[colnames(out) == 'Ward No.'] <- 'ward_id'
      colnames(out)[colnames(out) == 'Location No.'] <- 'location_id'
      colnames(out)[colnames(out) == 'Water collected (litre)'] <- 'liters_water_collected'
      colnames(out)[colnames(out) == 'Water through filter (litre)'] <- 'liters_water_through_filter'
      colnames(out)[colnames(out) == 'Water left in bag (litre)'] <- 'liters_water_left_in_bag'
 
-     tmp_path <- file.path(path_out, 'compiled.csv')
+     tmp_path <- file.path(path_out, 'compiled_aquaprobe.csv')
      data.table::fwrite(out, file=tmp_path)
      if (verbose) message(paste('Compiled aquaprobe data is here:', tmp_path))
 

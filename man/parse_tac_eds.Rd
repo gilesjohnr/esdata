@@ -15,6 +15,6 @@ parse_tac_eds(path_in, path_out = NULL)
 This function takes a directory with .eds files produced by QuantStudio software and extracts its contents into xml and txt files containing raw data and experiment metadata.
 }
 \examples{
-#' parse_tac_eds(path_in = "/User/test/dir1",
-                 path_out = "/User/test")
+parse_tac_eds(path_in = "/User/test/dir1",
+              path_out = "/User/test")
 }
