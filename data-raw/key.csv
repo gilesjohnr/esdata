@@ -1,0 +1,151 @@
+"target_name_unique","target_name_concise","control","include"
+"18S","18S","NA",1
+"Adenovirus 40/41","Adenovirus_40_41","PhHV",1
+"Adenovirus_40_41","Adenovirus_40_41","PhHV",1
+"Adenovirus_40-41","Adenovirus_40_41","PhHV",1
+"Adenovirus pan","Adenovirus_pan","PhHV",1
+"Aeromonas","Aeromonas","PhHV",1
+"AFR-WPV3","AFR_WPV3","MS2",0
+"AFR-WPV3-mdf","AFR_WPV3_mdf","MS2",0
+"Ancyclostoma","Ancylostoma","PhHV",1
+"Ancylostoma","Ancylostoma","PhHV",1
+"Ascaris","Ascaris","PhHV",1
+"Astrovirus","Astrovirus","MS2",1
+"B_fragilis","B_fragilis","PhHV",1
+"B.fragilis","B_fragilis","PhHV",1
+"Blastocystis","Blastocystis","PhHV",1
+"C_difficile","C_difficile","PhHV",1
+"C.difficile","C_difficile","PhHV",1
+"C_jejuni_coli","C_jejuni_coli","PhHV",1
+"C.jejuni-coli","C_jejuni_coli","PhHV",1
+"Campylobacter jejuni/coli","C_jejuni_coli","PhHV",1
+"Campy_cpn60","Campy_cpn60","PhHV",1
+"Campy23S2075A","Campy23S2075A","PhHV",1
+"Campy23S2075G","Campy23S2075G","PhHV",1
+"Campylobacter-16S","Campylobacter_16S","PhHV",1
+"Campylobacter pan","Campylobacter_pan","PhHV",1
+"Cryptosporidium","Cryptosporidium","PhHV",1
+"Cryptosporidium_CowP","Cryptosporidium_CowP","PhHV",1
+"Cryptosporidium hominis","Cryptosporidium_hominis","PhHV",1
+"Cryptosporidium parvum","Cryptosporidium_parvum","PhHV",1
+"Cyclospora","Cyclospora","PhHV",1
+"E_bieneusi","E_bieneusi","PhHV",1
+"E.bieneusi","E_bieneusi","PhHV",1
+"E_histolytica","E_histolytica","PhHV",1
+"E.histolytica","E_histolytica","PhHV",1
+"E_intestinalis","E_intestinalis","PhHV",1
+"E.intestinalis","E_intestinalis","PhHV",1
+"EAEC_aaiC","EAEC_aaiC","PhHV",1
+"EAEC_aar","EAEC_aar","PhHV",1
+"EAEC_aatA","EAEC_aatA","PhHV",1
+"EAEC_aggR","EAEC_aggR","PhHV",1
+"Enterobacter","Enterobacter","PhHV",1
+"EPEC_bfpA","EPEC_bfpA","PhHV",1
+"EPEC-bfpA","EPEC_bfpA","PhHV",1
+"EPEC_eae","EPEC_eae","PhHV",1
+"ETEC_CFA","ETEC_CFA","PhHV",1
+"ETEC_CS1","ETEC_CS1","PhHV",1
+"ETEC_CS2","ETEC_CS2","PhHV",1
+"ETEC_CS3","ETEC_CS3","PhHV",1
+"ETEC_CS5","ETEC_CS5","PhHV",1
+"ETEC_CS6","ETEC_CS6","PhHV",1
+"ETEC_LT","ETEC_LT","PhHV",1
+"ETEC_STh","ETEC_STh","PhHV",1
+"ETEC_STp","ETEC_STp","PhHV",1
+"Giardia","Giardia","PhHV",1
+"Giardia A","Giardia_A","PhHV",1
+"Giardia B","Giardia_B","PhHV",1
+"gLOW","gLOW","PhHV",1
+"H_nana","H_nana","PhHV",1
+"H.nana","H_nana","PhHV",1
+"H_pylori","H_pylori","PhHV",1
+"H.pylori","H_pylori","PhHV",1
+"Hs99999901_s1","Hs99999901_s1","PhHV",1
+"Isospora","Isospora","PhHV",1
+"M_tuberculosis","M_tuberculosis","PhHV",1
+"M.tuberculosis","M_tuberculosis","PhHV",1
+"MS2","MS2_1","NA",1
+"MS2-2","MS2_2","NA",1
+"Necator","Necator","PhHV",1
+"Norovirus GI","Norovirus_GI","MS2",1
+"Norovirus_GI","Norovirus_GI","MS2",1
+"Norovirus GI.1","Norovirus_GI_1","MS2",1
+"Norovirus GII","Norovirus_GII","MS2",1
+"Norovirus_GII","Norovirus_GII","MS2",1
+"Norovirus GII.4","Norovirus_GII_4","MS2",1
+"O157_H7","O157_H7","PhHV",1
+"pan Entamoeba","pan_Entamoeba","PhHV",1
+"Enterovirus","pan_EV","MS2",1
+"Pan-EV","pan_EV","MS2",1
+"Pan-PV","pan_PV","MS2",0
+"Pan-PV-mdf","pan_PV_mdf","MS2",0
+"PhHV","PhHV_1","NA",1
+"PhHV-2","PhHV_2","NA",1
+"Plesiomonas","Plesiomonas","PhHV",1
+"PV2-CDC","PV2_CDC","NA",0
+"PV2-mdf","PV2_mdf","NA",0
+"Rotavirus","Rotavirus","MS2",1
+"Rotavirus_G1","Rotavirus_G1","MS2",1
+"Rotavirus_G12","Rotavirus_G12","MS2",1
+"Rotavirus_G2","Rotavirus_G2","MS2",1
+"Rotavirus_G3","Rotavirus_G3","MS2",1
+"Rotavirus G4","Rotavirus_G4","MS2",1
+"Rotavirus_G8","Rotavirus_G8","MS2",1
+"Rotavirus_G9","Rotavirus_G9","MS2",1
+"Rotavirus P4","Rotavirus_P4","MS2",1
+"Rotavirus P6","Rotavirus_P6","MS2",1
+"Rotavirus P8","Rotavirus_P8","MS2",1
+"S.enteritidis","S_enteritidis","PhHV",1
+"S_Enteritidis","S_Enteritidis","PhHV",1
+"S_flexneri_6","S_flexneri_6","PhHV",1
+"S.flexneri-6","S_flexneri_6","PhHV",1
+"S_flexneri_non6","S_flexneri_non6","PhHV",1
+"S.flexneri-non6","S_flexneri_non6","PhHV",1
+"S_ParatyphiA","S_ParatyphiA","PhHV",1
+"S.ParatyphiA","S_ParatyphiA","PhHV",1
+"S_sonnei","S_sonnei","PhHV",1
+"S.sonnei","S_sonnei","PhHV",1
+"S_Typhi","S_Typhi","PhHV",1
+"S.Typhi","S_Typhi","PhHV",1
+"S_Typhimurium","S_Typhimurium","PhHV",1
+"S.Typhimurium","S_Typhimurium","PhHV",1
+"Sabin1","Sabin_1","MS2",0
+"Sabin2","Sabin_2","MS2",0
+"Sabin3","Sabin_3","MS2",0
+"Salmonella","Salmonella","PhHV",1
+"Salmonella spp.","Salmonella","PhHV",1
+"Sapovirus","Sapovirus","MS2",1
+"Sapovirus124","Sapovirus_124","MS2",1
+"Sapovirus_I-II-IV-V","Sapovirus_I_II_IV_V","MS2",1
+"SapovirusV","Sapovirus_V","MS2",1
+"SAR_CoV2_E","SARS_CoV2_E","MS2",1
+"SAR-CoV2_N1","SARS-CoV2_N1","MS2",1
+"SAR-CoV2_N2","SARS-CoV2_N2","MS2",1
+"Schistosoma","Schistosoma","PhHV",1
+"Shigella_clade 1","Shigella_clade_1","PhHV",1
+"Shigella_clade1","Shigella_clade_1","PhHV",1
+"Shigella spp.","Shigella_EIEC","PhHV",1
+"Shigella_EIEC","Shigella_EIEC","PhHV",1
+"Shigella/EIEC","Shigella_EIEC","PhHV",1
+"Shigella flexneri 6","Shigella_flexneri_6","PhHV",1
+"Shigella flexneri non6","Shigella_flexneri_non6","PhHV",1
+"Shigella sonnei","Shigella_sonnei","PhHV",1
+"SHV","SHV","PhHV",1
+"SHV238-40-SE-SK","SHV238_40_SE_SK","PhHV",1
+"SOAS-WPV3","SOAS_WPV3","MS2",0
+"SOAS-WPV3-mdf","SOAS_WPV3_mdf","MS2",0
+"STEC_stx1","STEC_stx1","PhHV",1
+"STEC_stx2","STEC_stx2","PhHV",1
+"Strongyloides","Strongyloides","PhHV",1
+"Trichuris","Trichuris","PhHV",1
+"V_cholerae","V_cholerae","PhHV",1
+"V.cholerae","V_cholerae","PhHV",1
+"V_parahaemolyticus","V_parahaemolyticus","PhHV",1
+"V.parahaemolyticus","V_parahaemolyticus","PhHV",1
+"VDPV1","VDPV_1","MS2",0
+"VDPV2","VDPV_2","MS2",0
+"VDPV3","VDPV_3","MS2",0
+"WEAF-WPV1","WEAF_WPV1","MS2",0
+"WPV1","WPV1","MS2",0
+"WPV3-mdf","WPV3_mdf","MS2",0
+"Yersinia","Yersinia","PhHV",1

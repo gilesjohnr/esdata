@@ -1,3 +1,7 @@
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/gilesjohnr/esdata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gilesjohnr/esdata/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 # **esdata**: an R package for processing environmental sampling data
 
 This package provides reproducible functions for parsing and compiling data sets that measure infectious disease burden using Environmental Sampling (ES) methods. The tools here were developed specifically for epidemiological surveillance studies for multiple pathogens in locations such as Dhaka, Bangladesh and Karachi, Pakistan. However, the functions should generalize to other applications provided they use the same data formats. This package is currently in development and maintained by John Giles ([@gilesjohnr](https://github.com/gilesjohnr)), details on data and models below.
