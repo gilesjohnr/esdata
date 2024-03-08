@@ -1,7 +1,6 @@
 # **esdata**: an R package for processing environmental sampling data
 
-This package provides reproducible functions for parsing and compiling data sets that measure infectious disease burden using Environmental Sampling (ES) methods. The tools here were developed specifically for epidemiological surveillance studies for multiple pathogen in locations such as Dhaka, Bangladesh and Karachi, Pakistan. However, the functions should generalize easily to other applications provided they use data in same standard formats. This package is currently in development and maintained by John Giles ([@gilesjohnr](https://github.com/gilesjohnr)).
-
+This package provides reproducible functions for parsing and compiling data sets that measure infectious disease burden using Environmental Sampling (ES) methods. The tools here were developed specifically for epidemiological surveillance studies for multiple pathogens in locations such as Dhaka, Bangladesh and Karachi, Pakistan. However, the functions should generalize easily to other applications provided they use data in the same standard formats. This package is currently in development and maintained by John Giles ([@gilesjohnr](https://github.com/gilesjohnr)), details on data and models below.
 
 
 ## Data
