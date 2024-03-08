@@ -9,9 +9,10 @@
 #' @returns data.frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_tac_xls(path_in = c("/User/test/dir1", "/Users/test/dir2"),
 #'               path_out = "/User/test")
-#'
+#' }
 
 
 parse_tac_xls <- function(path_in,

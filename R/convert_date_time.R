@@ -8,8 +8,9 @@
 #' @returns vector
 #'
 #' @examples
+#' \dontrun{
 #' convert_date_time(df$`Date & Time`)
-#'
+#' }
 
 convert_date_time <- function(x) {
 

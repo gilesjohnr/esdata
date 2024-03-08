@@ -8,8 +8,10 @@
 #' @returns NULL
 #'
 #' @examples
+#' \dontrun{
 #' parse_tac_eds(path_in = "/User/test/dir1",
 #'               path_out = "/User/test")
+#' }
 
 parse_tac_eds <- function(path_in,
                           path_out=NULL

@@ -8,8 +8,9 @@
 #' @returns List with both DMS and DD formats
 #'
 #' @examples
+#' \dontrun{
 #' convert_dms_to_dd(df$Lat)
-#'
+#' }
 
 convert_dms_to_dd <- function(x) {
 

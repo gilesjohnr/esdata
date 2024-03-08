@@ -11,9 +11,10 @@
 #' @returns data.frame
 #'
 #' @examples
+#' \dontrun{
 #' compile_tac_data(path_in = "/User/test/rtac/raw/csv",
 #'                  path_out = "/User/test/rtac")
-#'
+#' }
 
 compile_tac_data <- function(path_in,
                              path_out,

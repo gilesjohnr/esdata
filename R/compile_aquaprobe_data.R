@@ -9,9 +9,10 @@
 #' @returns data.frame
 #'
 #' @examples
+#' \dontrun{
 #' compile_aquaprobe_data(path_in = "/User/test/aquaprobe/raw/csv/input.csv",
 #'                        path_out = "/User/test/aquaprobe")
-#'
+#' }
 
 
 

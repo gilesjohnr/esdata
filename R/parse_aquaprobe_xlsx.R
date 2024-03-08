@@ -9,9 +9,10 @@
 #' @returns data.frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_aquaprobe_xlsx(path_in = c("/User/test/dir1", "/Users/test/dir2"),
 #'                      path_out = "/User/test")
-#'
+#' }
 
 
 parse_aquaprobe_xlsx <- function(path_in,
