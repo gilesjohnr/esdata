@@ -4,7 +4,7 @@
 \alias{compile_tac_data}
 \title{Compile TAC data}
 \usage{
-compile_tac_data(path_in, path_out, tau = 35, verbose = TRUE)
+compile_tac_data(path_in, path_out, tau, verbose = TRUE)
 }
 \arguments{
 \item{path_in}{A full file path to the directory containing parsed .csv files.}

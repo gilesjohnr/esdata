@@ -22,6 +22,8 @@ compile_tac_data <- function(path_in,
                              verbose=TRUE
 ) {
 
+     t_start <- Sys.time()
+
      # Get data key
      key <- esdata::key
 
@@ -185,5 +187,8 @@ compile_tac_data <- function(path_in,
      tmp_path <- file.path(path_out, 'compiled_tac.csv')
      data.table::fwrite(d, file=tmp_path)
      if (verbose) message(paste('Compiled TAC data is here:', tmp_path))
+
+     runtime <- Sys.time() - t_start
+     proc.time(Sys.time() - t_start)
 
 }
