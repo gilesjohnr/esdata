@@ -22,6 +22,7 @@ Imports:
   xlsx,
   datefixR,
   data.table,
+  progress,
   sp
 Depends: 
   R (>= 3.5.0),

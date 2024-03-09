@@ -17,6 +17,8 @@
 #'           Sys.sleep(0.01)
 #'           }
 #' }
+#'
+#' @export
 
 .init_pb <- function(x) {
 

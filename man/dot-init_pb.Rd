@@ -21,5 +21,6 @@ A wrapper function of the 'progress' package to initialize a default progress ba
           Sys.sleep(0.01)
           }
 }
+
 }
 \keyword{internal}

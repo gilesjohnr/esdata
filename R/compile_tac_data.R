@@ -22,8 +22,6 @@ compile_tac_data <- function(path_in,
                              verbose=TRUE
 ) {
 
-     t_start <- Sys.time()
-
      # Get data key
      key <- esdata::key
 
@@ -34,14 +32,18 @@ compile_tac_data <- function(path_in,
      ncols_expected <- as.numeric(names(sort(table(ncols), decreasing=TRUE))[1])
      sel <- which(ncols > ncols_expected)
 
-     if (verbose) {
+     if (length(sel) > 0) {
 
-          message('Ignoring the following .csv files (too many columns):')
-          message(paste0(utils::capture.output(csv_file_paths[sel]), collapse = "\n"))
+          if (verbose) {
+
+               message('Ignoring the following .csv files (too many columns):')
+               message(paste0(utils::capture.output(csv_file_paths[sel]), collapse = "\n"))
+
+          }
+
+          csv_file_paths <- csv_file_paths[-sel]
 
      }
-
-     csv_file_paths <- csv_file_paths[-sel]
 
      if (verbose) message('Loading .csv files')
      d <- do.call(rbind, lapply(csv_file_paths, function(x) as.data.frame(data.table::fread(x)) ))
@@ -59,12 +61,17 @@ compile_tac_data <- function(path_in,
 
      # Fix duplicated target names
      if (verbose) message('Fixing duplicated target names')
+
+     pb <- .init_pb(nrow(d))
+
      for (i in 1:nrow(d)) {
 
+          pb$tick()
           d$target_name[i] <- key[key$target_name_unique == d$target_name[i], 'target_name_concise']
 
      }
 
+     pb$terminate()
 
      # Contamination control: use Blank samples to determine which 'Undetermined' samples are NA
      if (verbose) message('Editing ct_value responses based on contamination controls')
@@ -131,9 +138,11 @@ compile_tac_data <- function(path_in,
           PhHV = c("PhHV", "PhHV_1", "PhHV_2")
      )
 
+     pb <- .init_pb(length(unique_samples))
+
      for (i in 1:length(unique_samples)) {
 
-          if (verbose) message(unique_samples[i])
+          pb$tick()
 
           for(j in 1:length(unique_targets)) {
 
@@ -166,6 +175,9 @@ compile_tac_data <- function(path_in,
 
      }
 
+     pb$terminate()
+
+
      if (verbose) message("Cleaning up remaining 'Undetermined' observations")
      d$ct_value[d$ct_value == 'Undetermined'] <- NA
      d$ct_value <- as.numeric(d$ct_value)
@@ -188,7 +200,5 @@ compile_tac_data <- function(path_in,
      data.table::fwrite(d, file=tmp_path)
      if (verbose) message(paste('Compiled TAC data is here:', tmp_path))
 
-     runtime <- Sys.time() - t_start
-     proc.time(Sys.time() - t_start)
 
 }

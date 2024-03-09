@@ -14,7 +14,6 @@
 #'               path_out = "/User/test")
 #' }
 
-
 parse_tac_xls <- function(path_in,
                           path_out,
                           verbose=TRUE
@@ -36,58 +35,67 @@ parse_tac_xls <- function(path_in,
      xls_file_names <- unlist(lapply(strsplit(xls_file_paths, "/"), function(x) x[length(x)]))
      xls_file_names <- stringr::str_sub(xls_file_names, end=-5)
 
+
+     pb <- .init_pb(length(xls_file_paths))
+
      for (i in seq_along(xls_file_paths)) {
 
-          if (verbose) message(xls_file_paths[i])
+          pb$tick() # Update progress bar
 
-          sheets <- length(readxl::excel_sheets(xls_file_paths[i]))
-          if (length(sheets) > 1) stop("Function assumes 1 sheet per .xls file")
+          n_sheets <- length(readxl::excel_sheets(xls_file_paths[i]))
 
-          tmp <- suppressMessages(as.data.frame(readxl::read_xls(xls_file_paths[i], col_names=FALSE)))
+          if (n_sheets > 1) {
 
-          # Header and data are separated by empty row
-          row_blank <- which(apply(tmp, 1, function(x) {
+               warning(glue::glue("File exclude due to >1 sheet: \n {xls_file_paths[i]}"))
 
-               all(is.na(x))
+          } else {
 
-          }))
+               tmp <- xlsx::read.xlsx2(xls_file_paths[i], sheetIndex=1, header=FALSE, colIndex = 1:10)
+               tmp <- tmp[!sapply(tmp, function (x) all(is.na(x) | x == ""))]
 
-          # Get row start of data
-          row_data_column_names <- which(apply(tmp, 1, function(x) {
 
-               all(!is.na(x)) & any(c('Well', 'Sample Name') %in% x)
+               # Header and data are separated by empty row
+               row_blank <- which(apply(tmp, 1, function(x) all(x == "")))
 
-          }))
+               # Get row start of data
+               row_data_column_names <- which(apply(tmp, 1, function(x) {
 
-          # Parse header
-          header <- tmp[2:(row_blank - 1),]
-          colnames(header) <- tmp[1,]
+                    all(!is.na(x)) & any(c('Well', 'Sample Name') %in% x)
 
-          # Parse data
-          data <- tmp[(row_data_column_names + 1):nrow(tmp),]
-          colnames(data) <- tmp[row_data_column_names,]
-          colnames(data)[colnames(data) == "Well"] <- 'well'
-          colnames(data)[colnames(data) == "Well Position"] <- 'well_position'
-          colnames(data)[colnames(data) == "Sample Name"] <- 'sample_id'
-          colnames(data)[colnames(data) == "Target Name"] <- 'target_name'
-          colnames(data)[colnames(data) == "CT"] <- 'ct_value'
+               }))
 
-          # Get experiment date
-          experiment_date <- header[header$`Block Type` == "Experiment Run End Time", 2]
-          experiment_date <- unlist(strsplit(experiment_date, " "))[1]
-          experiment_date <- as.Date(experiment_date, format="%Y-%m-%d")
+               # Parse header
+               header <- tmp[2:(row_blank - 1),]
+               colnames(header) <- tmp[1,]
 
-          out <- data.frame(
-               experiment_name = xls_file_names[i],
-               experiment_barcode = header[header$`Block Type` == "Experiment Barcode", 2],
-               experiment_date = experiment_date,
-               data
-          )
+               # Parse data
+               data <- tmp[(row_data_column_names + 1):nrow(tmp),]
+               colnames(data) <- tmp[row_data_column_names,]
+               colnames(data)[colnames(data) == "Well"] <- 'well'
+               colnames(data)[colnames(data) == "Well Position"] <- 'well_position'
+               colnames(data)[colnames(data) == "Sample Name"] <- 'sample_id'
+               colnames(data)[colnames(data) == "Target Name"] <- 'target_name'
+               colnames(data)[colnames(data) == "CT"] <- 'ct_value'
 
-          xlsx::write.xlsx(tmp, file.path(path_out, 'raw/xls', paste0(xls_file_names[i], '.xls')))
-          write.csv(out, file.path(path_out, 'raw/csv', paste0(xls_file_names[i], '.csv')), row.names=FALSE)
+               # Get experiment date
+               experiment_date <- header[header$`Block Type` == "Experiment Run End Time", 2]
+               experiment_date <- unlist(strsplit(experiment_date, " "))[1]
+               experiment_date <- as.Date(experiment_date, format="%Y-%m-%d")
 
+               out <- data.frame(
+                    experiment_name = xls_file_names[i],
+                    experiment_barcode = header[header$`Block Type` == "Experiment Barcode", 2],
+                    experiment_date = experiment_date,
+                    data
+               )
+
+               xlsx::write.xlsx(tmp, file.path(path_out, 'raw/xls', paste0(xls_file_names[i], '.xls')))
+               write.csv(out, file.path(path_out, 'raw/csv', paste0(xls_file_names[i], '.csv')), row.names=FALSE)
+
+          }
      }
+
+     pb$terminate()
 
      out_path <- file.path(path_out, 'raw/csv')
      n_csv <- length(list.files(out_path))

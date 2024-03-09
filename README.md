@@ -56,9 +56,18 @@ Java HotSpot(TM) 64-Bit Server VM (build 21.0.2+13-LTS-58, mixed mode, sharing)
 Use the `devtools` package to install the development version of `esdata` from the GitHub repository. R version >= 3.5.0 recommended.
 ```r
 install.packages('devtools')
-devtools::install_github('gilesjohnr/esdata')
+devtools::install_github("gilesjohnr/esdata", dependencies=TRUE)
 ```
 
 
 ## Troubleshooting
 For general questions, contact John Giles (john.giles@gatesfoundation.org) and/or Jillian Gauld (jillian.gauld@gatesfoundation.org). Note that this software is made available under a [Creative Commons](https://creativecommons.org/publicdomain/zero/1.0/legalcode.en) license and was developed for specific environmental sampling applications and therefore may not generalize perfectly to all settings.
+
+
+## Funding
+This work was developed at the Institute for Disease Modeling in support of funded research grants made by the Bill \& Melinda Gates Foundation.\
+<p align="center">
+     <img src="man/figures/logo_gf.png" height="40" align="center"/>
+     <img src="man/figures/logo_idm.png" height="45" align="center"/>
+</p>
+
