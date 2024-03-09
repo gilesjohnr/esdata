@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/index.html</loc>
   </url>
   <url>
-    <loc>/reference/compile_aquaprobe_data.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/compile_aquaprobe_data.html</loc>
   </url>
   <url>
-    <loc>/reference/compile_tac_data.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/compile_tac_data.html</loc>
   </url>
   <url>
-    <loc>/reference/convert_date_time.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/convert_date_time.html</loc>
   </url>
   <url>
-    <loc>/reference/convert_dms_to_dd.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/convert_dms_to_dd.html</loc>
   </url>
   <url>
-    <loc>/reference/dot-init_pb.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/dot-init_pb.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/key.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/key.html</loc>
   </url>
   <url>
-    <loc>/reference/parse_aquaprobe_xlsx.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/parse_aquaprobe_xlsx.html</loc>
   </url>
   <url>
-    <loc>/reference/parse_tac_eds.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/parse_tac_eds.html</loc>
   </url>
   <url>
-    <loc>/reference/parse_tac_xls.html</loc>
+    <loc>https://gilesjohnr.github.io/esdata/reference/parse_tac_xls.html</loc>
   </url>
 </urlset>
