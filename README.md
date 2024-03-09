@@ -65,9 +65,4 @@ For general questions, contact John Giles (john.giles@gatesfoundation.org) and/o
 
 
 ## Funding
-This work was developed at the Institute for Disease Modeling in support of funded research grants made by the Bill \& Melinda Gates Foundation.\
-<p align="center">
-     <img src="man/figures/logo_gf.png" height="40" align="center"/>
-     <img src="man/figures/logo_idm.png" height="45" align="center"/>
-</p>
-
+This work was developed at the [Institute for Disease Modeling](https://www.idmod.org/) in support of funded research grants made by the [Bill \& Melinda Gates Foundation](https://www.gatesfoundation.org/).
