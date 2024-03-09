@@ -41,7 +41,7 @@ compile_tac_data <- function(path_in,
 
      csv_file_paths <- csv_file_paths[-sel]
 
-     if (verbose) message('Compiling .csv files')
+     if (verbose) message('Loading .csv files')
      d <- do.call(rbind, lapply(csv_file_paths, function(x) as.data.frame(data.table::fread(x)) ))
 
      tmp <- strsplit(d$experiment_name, " ")
@@ -135,17 +135,28 @@ compile_tac_data <- function(path_in,
 
           for(j in 1:length(unique_targets)) {
 
-               if (!(unique_targets[j] %in% c('MS2_1', 'MS2_2', 'PhHV_1', 'PhHV_2', '18S'))) {
+               if (!(unique_targets[j] %in% c('MS2_1', 'MS2_2', 'PhHV_1', 'PhHV_2', '18S', 'Hs99999901_s1'))) {
 
-                    # Get the relevant amplification control(s) and their ct values
-                    #control <- key[key$target_name_concise == unique_targets[j], 'control'][1]
-                    #control <- unique(d$target_name[grep(control, d$target_name)])
+                    sel <- d$sample_id == unique_samples[i] & d$target_name == unique_targets[j]
 
-                    control <- key_controls[[key[key$target_name_concise == unique_targets[j], 'control'][1]]]
-                    control_ct_value <- as.numeric(d[d$sample_id == unique_samples[i] & d$target_name %in% control, 'ct_value'])
+                    if (nrow(d[sel,]) == 1) {
 
-                    # Change 'Undetermined' responses as needed
-                    d[d$sample_id == unique_samples[i] & d$target_name == unique_targets[j], 'ct_value'] <- ifelse(test=any(control_ct_value < tau), yes=tau, no=NA)
+                         if (!is.na(d[sel, 'ct_value'])) {
+
+                              if (d[sel, 'ct_value'] == 'Undetermined') {
+
+                                   # Get the relevant amplification control(s) and their ct values
+                                   control <- key_controls[[key[key$target_name_concise == unique_targets[j], 'control'][1]]]
+                                   control_ct_value <- as.numeric(d[d$sample_id == unique_samples[i] & d$target_name %in% control, 'ct_value'])
+
+                                   # Change 'Undetermined' responses as needed
+                                   d[sel, 'ct_value'] <- ifelse(test=any(control_ct_value < tau), yes=tau, no=NA)
+
+                              }
+
+                         }
+
+                    }
 
                }
 
