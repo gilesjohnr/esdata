@@ -18,7 +18,7 @@
 
 compile_tac_data <- function(path_in,
                              path_out,
-                             tau=35,
+                             tau,
                              verbose=TRUE
 ) {
 

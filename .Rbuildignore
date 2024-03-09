@@ -3,3 +3,6 @@
 ^\.github$
 ^local$
 ^qmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
