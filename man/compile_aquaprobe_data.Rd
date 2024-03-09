@@ -20,7 +20,8 @@ data.frame
 This function consumes .csv files produced by the \code{parse_aquaprobe_xlsx} and compiles them into a single data set.
 }
 \examples{
+\dontrun{
 compile_aquaprobe_data(path_in = "/User/test/aquaprobe/raw/csv/input.csv",
                        path_out = "/User/test/aquaprobe")
-
+}
 }

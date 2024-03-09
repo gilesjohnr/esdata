@@ -23,7 +23,8 @@ This function consumes .csv files produced by the \code{parse_taq_eds} and \code
 \code{key} data set included in this package. Adjustments to the Ct values are made using blank samples to control for contamination and relevant RNA/DNA targets as qPCR amplification controls.
 }
 \examples{
+\dontrun{
 compile_tac_data(path_in = "/User/test/rtac/raw/csv",
                  path_out = "/User/test/rtac")
-
+}
 }

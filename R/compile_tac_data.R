@@ -28,14 +28,14 @@ compile_tac_data <- function(path_in,
      csv_file_paths <- list.files(path_in, pattern='.csv', full.names=TRUE)
 
      if (verbose) message('Precheck .csv files')
-     ncols <- unlist(lapply(csv_file_paths, function(x) ncol(read.csv(x))))
+     ncols <- unlist(lapply(csv_file_paths, function(x) ncol(utils::read.csv(x))))
      ncols_expected <- as.numeric(names(sort(table(ncols), decreasing=TRUE))[1])
      sel <- which(ncols > ncols_expected)
 
      if (verbose) {
 
           message('Ignoring the following .csv files (too many columns):')
-          message(paste0(capture.output(csv_file_paths[sel]), collapse = "\n"))
+          message(paste0(utils::capture.output(csv_file_paths[sel]), collapse = "\n"))
 
      }
 
@@ -68,7 +68,7 @@ compile_tac_data <- function(path_in,
      if (verbose) message('Editing ct_value responses based on contamination controls')
 
      # Get blank samples for taq card i
-     d_blanks <- d[grep('BLANK | Blank | blank', d$sample_id),]
+     d_blanks <- d[stringr::str_sub(d$sample_id, end=5) %in% c('BLANK', 'Blank', 'blank'),]
 
      # If blank not 'Undetermined' for a pathogen, then that pathogens ct value must be set to NA on that card
      d_blanks_contam <- d_blanks[d_blanks$ct_value != 'Undetermined',]
@@ -76,16 +76,16 @@ compile_tac_data <- function(path_in,
      # Get quick info on how many samples affected
      samples_contam <- unique(d_blanks$sample_id)
      if (verbose) message(glue::glue("Samples blanks with contaminated observations: {length(samples_contam)}"))
-     message(paste0(capture.output(samples_contam), collapse = "\n"))
+     message(paste0(utils::capture.output(samples_contam), collapse = "\n"))
 
      # Get quick info about how many observations affected
      observations_contam <- table(d_blanks_contam$target_name)
      if (verbose) message(glue::glue("Number observations removed due to contaminated blanks: {sum(observations_contam)}"))
-     if (verbose) message(paste0(capture.output(observations_contam), collapse = "\n"))
+     if (verbose) message(paste0(utils::capture.output(observations_contam), collapse = "\n"))
 
      # Get list of unique blank samples
      unique_samples <- unique(d[order(d$experiment_barcode, d$sample_id, d$well), 'sample_id'])
-     sel_blanks <- grep('BLANK | Blank | blank', unique_samples)
+     sel_blanks <- stringr::str_sub(unique_samples, end=5) %in% c('BLANK', 'Blank', 'blank')
      unique_blanks <- unique_samples[sel_blanks]
 
 
@@ -115,27 +115,37 @@ compile_tac_data <- function(path_in,
 
      # Remove all blank samples
      d <- d[!(d$sample_id %in% unique_blanks),]
-
-
+     d <- d[!(d$sample_id == 'NFW'),]
 
 
      # Amplification control: use MS2 and PhHV controls to edit 'Undetermined' status to the Ct value cutoff (35)
      if (verbose) message('Editing ct_value responses based on amplification controls')
 
      unique_samples <- unique(d$sample_id)
+     unique_targets <- unique(d$target_name)
+
+     key_controls <- list(
+          MS2 = c("MS2", "MS2_1", "MS2_2"),
+          PhHV = c("PhHV", "PhHV_1", "PhHV_2")
+     )
 
      for (i in 1:length(unique_samples)) {
 
-          for(target in unique(tmp$target_name)) {
+          if (verbose) message(unique_samples[i])
 
-               if (!(target %in% c('MS2_1', 'MS2_2', 'PhHV_1', 'PhHV_2'))) {
+          for(j in 1:length(unique_targets)) {
+
+               if (!(unique_targets[j] %in% c('MS2_1', 'MS2_2', 'PhHV_1', 'PhHV_2', '18S'))) {
 
                     # Get the relevant amplification control(s) and their ct values
-                    control <- key[key$target_name_concise == target, 'control'][1]
-                    control_ct_value <- as.numeric(d[d$sample_id == unique_samples[i] & d$target_name %like% control, 'ct_value'])
+                    #control <- key[key$target_name_concise == unique_targets[j], 'control'][1]
+                    #control <- unique(d$target_name[grep(control, d$target_name)])
+
+                    control <- key_controls[[key[key$target_name_concise == unique_targets[j], 'control'][1]]]
+                    control_ct_value <- as.numeric(d[d$sample_id == unique_samples[i] & d$target_name %in% control, 'ct_value'])
 
                     # Change 'Undetermined' responses as needed
-                    d[d$sample_id == unique_samples[i] & d$target_name == target, 'ct_value'] <- data.table::fifelse(test=any(control_ct_value < tau), yes=tau, no=NA, na=NA)
+                    d[d$sample_id == unique_samples[i] & d$target_name == unique_targets[j], 'ct_value'] <- ifelse(test=any(control_ct_value < tau), yes=tau, no=NA)
 
                }
 
@@ -157,7 +167,7 @@ compile_tac_data <- function(path_in,
      if (verbose) {
 
           message("Final data:")
-          message(paste0(capture.output(str(d)), collapse = "\n"))
+          message(paste0(utils::capture.output(str(d)), collapse = "\n"))
 
      }
 

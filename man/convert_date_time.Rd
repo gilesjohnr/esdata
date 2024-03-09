@@ -17,6 +17,7 @@ This function takes a vector of the 'Date & Time' column in the Aquaprobe data, 
 consistent Date-class object. Note that many of the dates in this column are corrupted and give NAs.
 }
 \examples{
+\dontrun{
 convert_date_time(df$`Date & Time`)
-
+}
 }

@@ -20,7 +20,8 @@ data.frame
 This function takes a directory with .xls files produced by QuantStudio software and extracts its contents into individual csv files containing raw data.
 }
 \examples{
+\dontrun{
 parse_tac_xls(path_in = c("/User/test/dir1", "/Users/test/dir2"),
               path_out = "/User/test")
-
+}
 }

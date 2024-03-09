@@ -119,8 +119,8 @@
 "Sapovirus_I-II-IV-V","Sapovirus_I_II_IV_V","MS2",1
 "SapovirusV","Sapovirus_V","MS2",1
 "SAR_CoV2_E","SARS_CoV2_E","MS2",1
-"SAR-CoV2_N1","SARS-CoV2_N1","MS2",1
-"SAR-CoV2_N2","SARS-CoV2_N2","MS2",1
+"SAR-CoV2_N1","SARS_CoV2_N1","MS2",1
+"SAR-CoV2_N2","SARS_CoV2_N2","MS2",1
 "Schistosoma","Schistosoma","PhHV",1
 "Shigella_clade 1","Shigella_clade_1","PhHV",1
 "Shigella_clade1","Shigella_clade_1","PhHV",1

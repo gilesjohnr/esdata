@@ -17,6 +17,7 @@ This function takes the character strings giving Latitude and Longitude from the
 Degree Minute Second (DMS) and Decimal Degree (DD) formats.
 }
 \examples{
+\dontrun{
 convert_dms_to_dd(df$Lat)
-
+}
 }

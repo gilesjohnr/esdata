@@ -20,7 +20,8 @@ data.frame
 This function takes a .xlsx file path (or vector of file paths) and extracts its contents into individual csv files containing raw data.
 }
 \examples{
+\dontrun{
 parse_aquaprobe_xlsx(path_in = c("/User/test/dir1", "/Users/test/dir2"),
                      path_out = "/User/test")
-
+}
 }
