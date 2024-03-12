@@ -30,18 +30,6 @@ calc_n_copies <- function(ct_values,
                           standard_curves
 ){
 
-
-     if (F) {
-
-          compiled_tac <- as.data.frame(data.table::fread('/Users/johngiles/test2/tac/compiled_tac.csv'))
-
-          ct_values <- compiled_tac$ct_value
-          target_names <- compiled_tac$target_name
-          standard_curves <- standard_curves_dhaka
-
-
-     }
-
      # Checks
      if (!length(ct_values) == length(target_names)) stop("lengths of 'ct_values' and 'target_names' must match")
 
