@@ -21,7 +21,7 @@ key
 }
 \description{
 These data serve as a key to cross reference the unique (and sometimes duplicated) target names
-across all taqman cards to appropriate concise target names, relevant control samnples, and
+across all taqman cards to appropriate concise target names, relevant control samples, and
 whether to include the target in the compiled data set.
 }
 \keyword{datasets}
