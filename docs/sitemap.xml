@@ -13,6 +13,9 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/calc_n_copies.html</loc>
+  </url>
+  <url>
     <loc>/reference/compile_aquaprobe_data.html</loc>
   </url>
   <url>
@@ -41,5 +44,8 @@
   </url>
   <url>
     <loc>/reference/parse_tac_xls.html</loc>
+  </url>
+  <url>
+    <loc>/reference/standard_curves_dhaka.html</loc>
   </url>
 </urlset>

@@ -1,6 +1,6 @@
 # Prep standard curve data for viral load modeling
 
-df <- as.data.frame(readxl::read_xls(file.path(getwd(), "data-raw/standard_curves_dhaka 3 std card BG.xls")))
+df <- as.data.frame(readxl::read_xls(file.path(getwd(), "data-raw/standard_curves_dhaka_3_std_card_BG.xls")))
 
 df <- df[,!(colnames(df) == 'Sample Name')]
 df <- df[,!(colnames(df) == 'Ct Mean')]
