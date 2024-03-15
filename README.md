@@ -33,7 +33,7 @@ The package also includes methods for calculating basic quantities from qPCR dat
 
 ## Installation
 
-### 1) Check dependencies
+#### 1) Check dependencies
 The data parsing functions in this package depend on Python 3 and Java. To check and install these you can try the following:
 
 Download Python 3 [HERE](https://www.python.org/downloads/) or check current installation with:
@@ -52,7 +52,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 21.0.2+13-LTS-58, mixed mode, sharing)
 ```
 
 
-### 2) Install from Github
+#### 2) Install from Github
 Use the `devtools` package to install the development version of `esdata` from the GitHub repository. R version >= 3.5.0 recommended.
 ```r
 install.packages('devtools')

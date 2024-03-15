@@ -6,24 +6,24 @@
 #' @param path_in A full file path to the directory containing parsed .csv files.
 #' @param path_out A full file path to the location where output files are to be written.
 #' @param tau The threshold Ct value for the amplification control. For each TAC, when relevant amplification controls (e.g. MS2, PhHV) are BELOW this threshold, "Undetermined" responses can be set to this threshold value.
-#' @param verbose Logical indicating whether to print messages.
+#' @param key A data.frame containing the mapping of unique and concise target names and amplification controls. See \code{esdata::key_dhaka} for template.
+#' @param verbose Logical indicating whether to print messages. Default set to TRUE.
 #'
 #' @returns data.frame
 #'
 #' @examples
 #' \dontrun{
 #' compile_tac_data(path_in = "/User/test/rtac/raw/csv",
-#'                  path_out = "/User/test/rtac")
+#'                  path_out = "/User/test/rtac",
+#'                  key = esdata::key_dhaka)
 #' }
 
 compile_tac_data <- function(path_in,
                              path_out,
                              tau,
+                             key,
                              verbose=TRUE
 ) {
-
-     # Get data key
-     key <- esdata::key
 
      csv_file_paths <- list.files(path_in, pattern='.csv', full.names=TRUE)
 

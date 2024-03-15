@@ -4,7 +4,7 @@
 \alias{compile_tac_data}
 \title{Compile TAC data}
 \usage{
-compile_tac_data(path_in, path_out, tau, verbose = TRUE)
+compile_tac_data(path_in, path_out, tau, key, verbose = TRUE)
 }
 \arguments{
 \item{path_in}{A full file path to the directory containing parsed .csv files.}
@@ -13,7 +13,9 @@ compile_tac_data(path_in, path_out, tau, verbose = TRUE)
 
 \item{tau}{The threshold Ct value for the amplification control. For each TAC, when relevant amplification controls (e.g. MS2, PhHV) are BELOW this threshold, "Undetermined" responses can be set to this threshold value.}
 
-\item{verbose}{Logical indicating whether to print messages.}
+\item{key}{A data.frame containing the mapping of unique and concise target names and amplification controls. See \code{esdata::key_dhaka} for template.}
+
+\item{verbose}{Logical indicating whether to print messages. Default set to TRUE.}
 }
 \value{
 data.frame
@@ -25,6 +27,7 @@ This function consumes .csv files produced by the \code{parse_taq_eds} and \code
 \examples{
 \dontrun{
 compile_tac_data(path_in = "/User/test/rtac/raw/csv",
-                 path_out = "/User/test/rtac")
+                 path_out = "/User/test/rtac",
+                 key = esdata::key_dhaka)
 }
 }

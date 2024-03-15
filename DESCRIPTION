@@ -23,6 +23,7 @@ Imports:
   datefixR,
   data.table,
   progress,
+  pbapply,
   sp
 Depends: 
   R (>= 3.5.0),

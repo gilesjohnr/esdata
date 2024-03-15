@@ -4,7 +4,13 @@
 \alias{calc_delta_delta_ct}
 \title{Calculate delta delta Ct}
 \usage{
-calc_delta_delta_ct(ct_target_t, ct_reference_t, ct_target_t0, ct_reference_t0)
+calc_delta_delta_ct(
+  ct_target_t,
+  ct_reference_t,
+  ct_target_t0,
+  ct_reference_t0,
+  amplification_efficiency = 1
+)
 }
 \arguments{
 \item{ct_target_t}{A scalar providing the Ct value of the target gene for an observation at time t}
@@ -14,12 +20,14 @@ calc_delta_delta_ct(ct_target_t, ct_reference_t, ct_target_t0, ct_reference_t0)
 \item{ct_target_t0}{A scalar providing the Ct value of the target gene for the reference observation at time t=0}
 
 \item{ct_reference_t0}{A scalar providing the Ct value of the reference gene for the reference observation at time t=0}
+
+\item{amplification_efficiency}{A scalar between 0 and 1 giving the assumed PCR amplification efficiency for all samples in the equation. Defaults to 1, which assumes 100\% efficiency.}
 }
 \value{
 Scalar
 }
 \description{
-This function calculates relative gene expression using the delta delta Ct method described in Livak & Schmittgen (2001).
+This function calculates relative gene expression using the delta delta Ct method described in \url{https://www.sciencedirect.com/science/article/abs/pii/S1046202301912629?via\%3Dihub}{Livak & Schmittgen (2001)}.
 }
 \examples{
 \dontrun{
@@ -27,7 +35,8 @@ This function calculates relative gene expression using the delta delta Ct metho
 calc_delta_delta_ct(ct_target_t = 32.5,
                     ct_reference_t = 25,
                     ct_target_t0 = 34,
-                    ct_reference_t0 = 30)
+                    ct_reference_t0 = 30,
+                    amplification_efficiency = 0.95)
 
 }
 }
