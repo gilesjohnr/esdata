@@ -13,6 +13,9 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/apply_delta_delta_ct.html</loc>
+  </url>
+  <url>
     <loc>/reference/calc_delta_delta_ct.html</loc>
   </url>
   <url>
@@ -37,7 +40,10 @@
     <loc>/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/key.html</loc>
+    <loc>/reference/key_dhaka.html</loc>
+  </url>
+  <url>
+    <loc>/reference/logmean.html</loc>
   </url>
   <url>
     <loc>/reference/parse_aquaprobe_xlsx.html</loc>

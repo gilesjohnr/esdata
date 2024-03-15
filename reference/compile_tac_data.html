@@ -51,7 +51,7 @@ key data set included in this package. Adjustments to the Ct values are made usi
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compile_tac_data</span><span class="op">(</span><span class="va">path_in</span>, <span class="va">path_out</span>, <span class="va">tau</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compile_tac_data</span><span class="op">(</span><span class="va">path_in</span>, <span class="va">path_out</span>, <span class="va">tau</span>, <span class="va">key</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -68,8 +68,12 @@ key data set included in this package. Adjustments to the Ct values are made usi
 <dd><p>The threshold Ct value for the amplification control. For each TAC, when relevant amplification controls (e.g. MS2, PhHV) are BELOW this threshold, "Undetermined" responses can be set to this threshold value.</p></dd>
 
 
+<dt>key</dt>
+<dd><p>A data.frame containing the mapping of unique and concise target names and amplification controls. See <code><a href="key_dhaka.html">esdata::key_dhaka</a></code> for template.</p></dd>
+
+
 <dt>verbose</dt>
-<dd><p>Logical indicating whether to print messages.</p></dd>
+<dd><p>Logical indicating whether to print messages. Default set to TRUE.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -83,7 +87,8 @@ key data set included in this package. Adjustments to the Ct values are made usi
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="fu">compile_tac_data</span><span class="op">(</span>path_in <span class="op">=</span> <span class="st">"/User/test/rtac/raw/csv"</span>,</span></span>
-<span class="r-in"><span>                 path_out <span class="op">=</span> <span class="st">"/User/test/rtac"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                 path_out <span class="op">=</span> <span class="st">"/User/test/rtac"</span>,</span></span>
+<span class="r-in"><span>                 key <span class="op">=</span> <span class="fu">esdata</span><span class="fu">::</span><span class="va"><a href="key_dhaka.html">key_dhaka</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
